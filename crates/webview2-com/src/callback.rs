@@ -374,6 +374,13 @@ pub struct DownloadStartingEventHandler(
 );
 
 #[event_callback]
+pub struct DragStartingEventHandler(
+    ICoreWebView2DragStartingEventHandler,
+    Option<ICoreWebView2CompositionController>,
+    Option<ICoreWebView2DragStartingEventArgs>,
+);
+
+#[event_callback]
 pub struct BytesReceivedChangedEventHandler(
     ICoreWebView2BytesReceivedChangedEventHandler,
     Option<ICoreWebView2DownloadOperation>,
@@ -541,6 +548,23 @@ pub struct FaviconChangedEventHandler(
     Option<ICoreWebView2>,
     Option<IUnknown>,
 );
+
+#[event_callback]
+pub struct FindActiveMatchIndexChangedEventHandler(
+    ICoreWebView2FindActiveMatchIndexChangedEventHandler,
+    Option<ICoreWebView2Find>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct FindMatchCountChangedEventHandler(
+    ICoreWebView2FindMatchCountChangedEventHandler,
+    Option<ICoreWebView2Find>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct FindStartCompletedHandler(ICoreWebView2FindStartCompletedHandler, HRESULT);
 
 #[completed_callback]
 pub struct GetFaviconCompletedHandler(
